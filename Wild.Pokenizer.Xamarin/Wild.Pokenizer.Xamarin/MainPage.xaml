@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Wild.Pokenizer.Xamarin"
+             x:Class="Wild.Pokenizer.Xamarin.MainPage">
+
+    <StackLayout Orientation="Vertical">
+        <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked"
+                Text="Take from camera"/>
+        <Button x:Name="UploadPictureButton" Clicked="UploadPictureButton_Clicked"
+                Text="Pick a photo"/>
+        <ActivityIndicator x:Name="AppBusyIndicator" IsVisible="False" IsRunning="False" />
+        <Image x:Name="TargetImage" HeightRequest="240" />
+
+        <Button x:Name="PredictButton" Clicked="PredictButton_OnClickedButton_Clicked"
+                Text="Predict"/>
+
+        <StackLayout Orientation="Horizontal" Padding="3">
+            <Label Text="Result: "/>
+            <Label x:Name="ResultLabel"
+                   Text="{Binding Path=Answer}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="3">
+            <Label Text="Matched: "/>
+            <Label x:Name="MatchedLabel" Text="{Binding Path=Success}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
