@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Predictors;
 using Xamarin.Forms;
 

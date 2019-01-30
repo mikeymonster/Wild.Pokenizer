@@ -3,8 +3,6 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
-using Autofac;
-using Plugin.CurrentActivity;
 using Plugin.Permissions;
 
 namespace Wild.Pokenizer.Xamarin.Droid
