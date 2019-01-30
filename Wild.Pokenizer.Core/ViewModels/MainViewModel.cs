@@ -4,31 +4,6 @@ using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
 using System;
 
-//TODO: DELETE THIS! Just here to make it compile
-namespace Xamarin.Forms
-{
-    internal class Command : ICommand
-    {
-        private Action _action;
-
-        public Command(Action action)
-        {
-            _action = action;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-}
 namespace Wild.Pokenizer.Core.ViewModels
 {
     public class MainViewModel : IMainViewModel
@@ -44,17 +19,26 @@ namespace Wild.Pokenizer.Core.ViewModels
         #region Commands
         
         public ICommand TakePictureCommand 
-            => (_takePictureCommand ?? (_takePictureCommand = new Command(TakePicture)));
+            => (_takePictureCommand 
+                ?? (_takePictureCommand 
+                    = new Command(TakePicture,
+                        () => !IsBusy)));
 
         public ICommand UploadPictureCommand
-            => (_uploadPictureCommand ?? (_uploadPictureCommand = new Command(UploadPicture)));
+            => (_uploadPictureCommand 
+                ?? (_uploadPictureCommand 
+                    = new Command(UploadPicture,
+                        () => !IsBusy)));
 
         public ICommand PredictCommand 
-            => (_predictCommand ?? (_predictCommand = new Command(Predict)));
+            => (_predictCommand 
+                ?? (_predictCommand 
+                    = new Command(Predict,
+                        () => !IsBusy)));
 
         #endregion
 
-        #region Preperties
+        #region Properties
 
         public bool IsBusy { get; }
 
@@ -84,6 +68,7 @@ namespace Wild.Pokenizer.Core.ViewModels
         {
 
         }
+        
         private void Predict()
         {
 
