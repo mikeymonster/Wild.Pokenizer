@@ -51,7 +51,6 @@ namespace Wild.Pokenizer.Core.ViewModels
         #endregion
 
         #region Constructors
-
         
         public MainViewModel(IMediaProvider mediaProvider, IPredictor predictor)
         {
