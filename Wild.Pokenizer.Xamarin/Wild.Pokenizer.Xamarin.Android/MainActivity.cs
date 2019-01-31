@@ -1,8 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
 using Plugin.Permissions;
 
 namespace Wild.Pokenizer.Xamarin.Droid
@@ -26,20 +24,20 @@ namespace Wild.Pokenizer.Xamarin.Droid
             LoadApplication(new App());
         }
 
-        private void CheckPermissions()
-        {
-            var cameraPermission = Android.Manifest.Permission.Camera;
+        //private void CheckPermissions()
+        //{
+        //    var cameraPermission = Android.Manifest.Permission.Camera;
 
-            if (ContextCompat.CheckSelfPermission(this, cameraPermission) != (int)Permission.Granted)
-            {
-                ActivityCompat.RequestPermissions(this, 
-                    new string[]
-                    {
-                        cameraPermission
-                    },
-                    (int)Permission.Granted);
-            }
-        }
+        //    if (ContextCompat.CheckSelfPermission(this, cameraPermission) != (int)Permission.Granted)
+        //    {
+        //        ActivityCompat.RequestPermissions(this, 
+        //            new string[]
+        //            {
+        //                cameraPermission
+        //            },
+        //            (int)Permission.Granted);
+        //    }
+        //}
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {

@@ -7,6 +7,7 @@ namespace Wild.Pokenizer.Xamarin.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
+    // ReSharper disable once PartialTypeWithSinglePart
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
         //

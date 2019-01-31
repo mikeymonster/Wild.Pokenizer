@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Wild.Pokenizer.Xamarin
 {
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class App : Application
     {
         public App()

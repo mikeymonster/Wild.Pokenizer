@@ -2,13 +2,15 @@
 using Xamarin.Forms;
 using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
-using System;
 
 namespace Wild.Pokenizer.Core.ViewModels
 {
     public class MainViewModel : IMainViewModel
     {
         #region Private members
+
+        private readonly IMediaProvider _mediaProvider;
+        private readonly IPredictor _predictor;
 
         private ICommand _takePictureCommand;
         private ICommand _uploadPictureCommand;
@@ -50,9 +52,11 @@ namespace Wild.Pokenizer.Core.ViewModels
 
         #region Constructors
 
-        public MainViewModel()
+        
+        public MainViewModel(IMediaProvider mediaProvider, IPredictor predictor)
         {
-
+            _predictor = predictor;
+            _mediaProvider = mediaProvider;
         }
 
         #endregion

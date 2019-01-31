@@ -10,7 +10,7 @@ namespace Wild.Pokenizer.Core.Predictors
         public async Task<PredictionResult> PredictAsync(string input)
         {
             return
-                await Task.FromResult<PredictionResult>(
+                await Task.FromResult(
                     new PredictionResult
                     {
                         Success = true,
@@ -21,12 +21,12 @@ namespace Wild.Pokenizer.Core.Predictors
         public async Task<PredictionResult> PredictAsync(Stream stream)
         {
             return
-                await Task.FromResult<PredictionResult>(
+                await Task.FromResult(
                     new PredictionResult
                     {
                         Success = true,
                         Answer = "Prediction from stream."
-                    }); ;
+                    });
         }
     }
 }

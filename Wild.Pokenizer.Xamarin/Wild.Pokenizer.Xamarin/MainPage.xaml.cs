@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Wild.Pokenizer.Xamarin
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         private MediaFile _file;
 

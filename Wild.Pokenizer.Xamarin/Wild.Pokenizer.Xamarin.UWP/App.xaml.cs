@@ -10,6 +10,7 @@ namespace Wild.Pokenizer.Xamarin.UWP
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     sealed partial class App : Application
     {
         /// <summary>
@@ -18,8 +19,8 @@ namespace Wild.Pokenizer.Xamarin.UWP
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -29,8 +30,6 @@ namespace Wild.Pokenizer.Xamarin.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -42,7 +41,7 @@ namespace Wild.Pokenizer.Xamarin.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                global::Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

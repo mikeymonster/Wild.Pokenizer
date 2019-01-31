@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Wild.Pokenizer.Core.Predictors;
@@ -5,7 +6,8 @@ using Xunit;
 
 namespace Wild.Pokenizer.Core.Tests
 {
-    public class PredictorTests
+    [Trait("Category", "Predictors")]
+    public class PredictorTests : IDisposable
     {
         [Fact]
         public async Task DefaultPredictorReturnsSuccessForStringInput()
@@ -27,6 +29,10 @@ namespace Wild.Pokenizer.Core.Tests
 
             Assert.True(result.Success);
             Assert.Equal("Prediction from stream.", result.Answer);
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
