@@ -1,28 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Wild.Pokenizer.Xamarin"
-             x:Class="Wild.Pokenizer.Xamarin.MainPage">
+<local:ViewPage x:TypeArguments="interfaces:IMainViewModel" 
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:Wild.Pokenizer.Xamarin"
+                xmlns:interfaces="clr-namespace:Wild.Pokenizer.Core.Interfaces;assembly=Wild.Pokenizer.Core"
+                x:Class="Wild.Pokenizer.Xamarin.MainPage">
 
     <StackLayout Orientation="Vertical">
-        <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked"
-                Text="Take from camera"/>
-        <Button x:Name="UploadPictureButton" Clicked="UploadPictureButton_Clicked"
-                Text="Pick a photo"/>
-        <ActivityIndicator x:Name="AppBusyIndicator" IsVisible="False" IsRunning="False" />
-        <Image x:Name="TargetImage" HeightRequest="240" />
-
-        <Button x:Name="PredictButton" Clicked="PredictButton_OnClickedButton_Clicked"
-                Text="Predict"/>
+        <Button x:Name="TakePictureButton" 
+                Command="{Binding TakePictureCommand}"
+                Text="Take from camera" />
+        <Button x:Name="UploadPictureButton" 
+                Command="{Binding UploadPictureCommand}"
+                Text="Pick a photo" />
+        <ActivityIndicator x:Name="AppBusyIndicator" 
+                           IsVisible="{Binding IsBusy}" 
+                           IsRunning="{Binding IsBusy}" />
+        <Image x:Name="TargetImage" 
+               Source="{Binding TargetImageSource}"
+               HeightRequest="240" />
 
         <StackLayout Orientation="Horizontal" Padding="3">
             <Label Text="Result: "/>
             <Label x:Name="ResultLabel"
-                   Text="{Binding Path=Answer}"/>
+                   Text="{Binding Path=Prediction.Answer}"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal" Padding="3">
             <Label Text="Matched: "/>
-            <Label x:Name="MatchedLabel" Text="{Binding Path=Success}"/>
+            <Label x:Name="MatchedLabel" Text="{Binding Path=Prediction.Success}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="3">
+            <Label Text="Matched: "/>
+            <Label x:Name="PredictionTimeLabel" Text="{Binding Path=Prediction.PredictionTime, StringFormat='{}{0:hh\\:mm}'}"/>
         </StackLayout>
     </StackLayout>
-</ContentPage>
+</local:ViewPage>

@@ -1,13 +1,17 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
 
-namespace Wild.Pokenizer.Core.Predictors
+namespace Wild.Pokenizer.Xamarin.iOS.Predictors
 {
-    public class DefaultPredictor : IPredictor
+    // ReSharper disable once InconsistentNaming
+    public class iOSPredictor : IPredictor
     {
+        public iOSPredictor()
+        {
+        }
+
         public async Task<PredictionResult> PredictAsync(string input)
         {
             return
@@ -15,8 +19,7 @@ namespace Wild.Pokenizer.Core.Predictors
                     new PredictionResult
                     {
                         Success = true,
-                        Answer = "Prediction from string.",
-                        PredictionTime = DateTime.Now
+                        Answer = "Prediction from iOS string."
                     });
         }
 
@@ -27,8 +30,7 @@ namespace Wild.Pokenizer.Core.Predictors
                     new PredictionResult
                     {
                         Success = true,
-                        Answer = "Prediction from stream.",
-                        PredictionTime = DateTime.Now
+                        Answer = "Prediction from iOS stream."
                     });
         }
     }

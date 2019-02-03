@@ -92,9 +92,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IoC\Setup.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Predictors\UwpPredictor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +155,10 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj">
+      <Project>{941c9868-ae2c-4b6c-a6d8-41ca0888cf32}</Project>
+      <Name>Wild.Pokenizer.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin.csproj">
       <Project>{1D629291-7F70-42E1-8FB6-469616B7EE9B}</Project>
       <Name>Wild.Pokenizer.Xamarin</Name>

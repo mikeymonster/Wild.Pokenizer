@@ -18,23 +18,12 @@ namespace Wild.Pokenizer.Xamarin.Droid
 
             //if (!Resolver.IsSet) SetIoc();
 
-            LoadApplication(new App());
+            LoadApplication(new App(new IoC.Setup()));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-        private void SetIoc()
-        {
-            //var containerBuilder = new Autofac.ContainerBuilder();
-
-            //containerBuilder.Register(c => AndroidDevice.CurrentDevice).As<IDevice>();
-            //containerBuilder.RegisterType<MainViewModel>().AsSelf();
-
-            //Resolver.SetResolver(new AutofacResolver(containerBuilder.Build()));
-
         }
     }
 }

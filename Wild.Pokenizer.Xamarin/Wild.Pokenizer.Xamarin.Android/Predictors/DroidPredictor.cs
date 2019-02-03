@@ -1,12 +1,11 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
 
-namespace Wild.Pokenizer.Core.Predictors
+namespace Wild.Pokenizer.Xamarin.Droid.Predictors
 {
-    public class DefaultPredictor : IPredictor
+    public class DroidPredictor : IPredictor
     {
         public async Task<PredictionResult> PredictAsync(string input)
         {
@@ -15,8 +14,7 @@ namespace Wild.Pokenizer.Core.Predictors
                     new PredictionResult
                     {
                         Success = true,
-                        Answer = "Prediction from string.",
-                        PredictionTime = DateTime.Now
+                        Answer = "Prediction from Android string."
                     });
         }
 
@@ -27,8 +25,7 @@ namespace Wild.Pokenizer.Core.Predictors
                     new PredictionResult
                     {
                         Success = true,
-                        Answer = "Prediction from stream.",
-                        PredictionTime = DateTime.Now
+                        Answer = "Prediction from Android stream."
                     });
         }
     }

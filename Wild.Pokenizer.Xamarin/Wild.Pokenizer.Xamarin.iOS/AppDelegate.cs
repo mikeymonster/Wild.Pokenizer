@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Wild.Pokenizer.Xamarin.iOS.IoC;
 
 namespace Wild.Pokenizer.Xamarin.iOS
 {
@@ -20,7 +21,7 @@ namespace Wild.Pokenizer.Xamarin.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new Setup()));
 
             return base.FinishedLaunching(app, options);
         }

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Wild.Pokenizer.Xamarin.IoC;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -7,8 +8,10 @@ namespace Wild.Pokenizer.Xamarin
     // ReSharper disable once RedundantExtendsListEntry
     public partial class App : Application
     {
-        public App()
+        public App(AppSetup setup)
         {
+            AppContainer.Container = setup.CreateContainer();
+
             InitializeComponent();
 
             MainPage = new MainPage();

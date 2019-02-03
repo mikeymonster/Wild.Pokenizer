@@ -18,4 +18,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
 </Project>
