@@ -20,11 +20,11 @@ NuGet - need Xam.Plugin.Media in order to use the camera
 Thoughts:
 
  -- .Application (or Core) - contains the types, interfaces, default predictor etc.
- -- ? Android model? for Tensorflow
+ -- Android model for Tensorflow
  -- UI (Xamarin Forms) - no need for additional MVVM fx here. Loads pictures from file or camera and calls search.
- -- .Learning r PROJECT - can this be mixed in? And can it use the CRAN versions of R rather than the MS?
+ -- Learning R project - can this be mixed in? And can it use the CRAN versions of R rather than the MS?
 
-DI - use Autofac
+DI - use Autofac. See https://www.jamesalt.com/getting-started-with-autofac-and-xamarin-forms/
 
 Unit tests - xunit, with NSubstitute
 
@@ -85,3 +85,68 @@ Official docs on [Deploying TensorFlow Models](https://www.tensorflow.org/lite/t
 More up-to-date [info](https://link.medium.com/vx2c2Hh1GT) - TensorFlow Lite Now Faster with Mobile GPUs (Developer Preview)” by TensorFlow 
 
 https://github.com/emgucv/emgutf/commit/6df07424da4b9ce5b64ecad95b40a11408f1416f
+
+
+
+## Keras Installation Notes
+
+https://www.tensorflow.org/install/gpu
+The following NVIDIA® software must be installed on your system:
+
+NVIDIA® GPU drivers —CUDA 9.0 requires 384.x or higher.
+CUDA® Toolkit —TensorFlow supports CUDA 9.0.
+CUPTI ships with the CUDA Toolkit.
+cuDNN SDK (>= 7.2)
+
+NVISIA developer login - wildconsultingltd@gmail.com S$
+
+Download CUDA from https://developer.nvidia.com/cuda-90-download-archive?target_os=Windows&target_arch=x86_64 
+Download cuDNN from https://developer.nvidia.com/rdp/cudnn-download - Download cuDNN v7.4.2 (Dec 14, 2018), for CUDA 9.0 - Windows 10
+
+Following https://towardsdatascience.com/python-environment-setup-for-deep-learning-on-windows-10-c373786e36d1
+Installed base installer, followed by all patches in turn (not sure if this was needed)
+
+ * custom install, 
+    ** skipping driver install
+    ** deseleted Visual Studio Integration, as the install failed otherwise.
+
+To build samples, https://www.olegtarasov.me/how-to-build-cuda-toolkit-projects-in-visual-studio-2017/
+ - installed VC++ 2015.3 v140 toolset under Compilers, build tools and runtimes
+ - .NET 3.5 was already installed
+ - extracted CUDA files and copied all files from `CUDAVisualStudioIntegration\extras\visual_studio_integration\MSBuildExtensions` to `C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\v140\BuildCustomizations`
+ - Modified cdeviceQuery_vs2017.vcxproj set:
+    ` <CUDAPropsPath Condition="'$(CUDAPropsPath)'==''">$(VCTargetsPath14)\BuildCustomizations</CUDAPropsPath>`
+ - opened VS2017 sln inC:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.0\1_Utilities\deviceQuery
+ - retargeted solution (right click on solution) to latest Windows 10 SDK
+
+CdNN - download and unzip, then open an adminstrator prompt and copy:
+
+```
+copy c:\temp\cuda\bin\cudnn64_7.dll "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin"
+copy c:\temp\cuda\include\cudnn.h "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include"
+copy c:\temp\cuda\lib\x64\cudnn.lib "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64"
+
+REM check:
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin\cudnn64_7.dll"
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include\cudnn.h"
+dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\cudnn.lib"
+
+```
+
+Made sure PATH has the following, adding where needed:
+
+```
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64
+```
+
+
+Install Keras and tensorflow in R:
+
+```
+install.packages("keras")
+library(keras)
+install_keras(tensorflow = "gpu")
+```
