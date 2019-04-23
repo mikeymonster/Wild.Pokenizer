@@ -63,8 +63,10 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\Setup.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Predictors\DroidPredictor.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,6 +101,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj">
+      <Project>{941c9868-ae2c-4b6c-a6d8-41ca0888cf32}</Project>
+      <Name>Wild.Pokenizer.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin.csproj">
       <Project>{1D629291-7F70-42E1-8FB6-469616B7EE9B}</Project>
       <Name>Wild.Pokenizer.Xamarin</Name>

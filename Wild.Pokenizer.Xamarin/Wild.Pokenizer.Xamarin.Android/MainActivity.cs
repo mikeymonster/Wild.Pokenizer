@@ -1,8 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
 using Plugin.Permissions;
 
 namespace Wild.Pokenizer.Xamarin.Droid
@@ -18,43 +16,14 @@ namespace Wild.Pokenizer.Xamarin.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            //CrossCurrentActivity.Current.Init(this, bundle);
-
-            //CheckPermissions();
             //if (!Resolver.IsSet) SetIoc();
 
-            LoadApplication(new App());
-        }
-
-        private void CheckPermissions()
-        {
-            var cameraPermission = Android.Manifest.Permission.Camera;
-
-            if (ContextCompat.CheckSelfPermission(this, cameraPermission) != (int)Permission.Granted)
-            {
-                ActivityCompat.RequestPermissions(this, 
-                    new string[]
-                    {
-                        cameraPermission
-                    },
-                    (int)Permission.Granted);
-            }
+            LoadApplication(new App(new IoC.Setup()));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-        private void SetIoc()
-        {
-            //var containerBuilder = new Autofac.ContainerBuilder();
-
-            //containerBuilder.Register(c => AndroidDevice.CurrentDevice).As<IDevice>();
-            //containerBuilder.RegisterType<MainViewModel>().AsSelf();
-
-            //Resolver.SetResolver(new AutofacResolver(containerBuilder.Build()));
-
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿namespace Wild.Pokenizer.Xamarin.UWP
+﻿
+namespace Wild.Pokenizer.Xamarin.UWP
 {
     public sealed partial class MainPage
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            LoadApplication(new Wild.Pokenizer.Xamarin.App());
+            LoadApplication(new Xamarin.App(new IoC.Setup()));
         }
     }
 }
