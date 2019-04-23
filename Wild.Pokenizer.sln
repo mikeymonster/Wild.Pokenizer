@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DEEA6445-ACC1-4026-9A3A-339A57B5E782}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,15 +14,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Xamarin.iOS"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Xamarin.UWP", "Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin.UWP\Wild.Pokenizer.Xamarin.UWP.csproj", "{13ADAF86-E9CC-408B-A1C9-5CDDD872CCBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Xamarin", "Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin.csproj", "{82591914-B344-4E30-876D-FA0C3590FF14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Xamarin", "Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin\Wild.Pokenizer.Xamarin.csproj", "{82591914-B344-4E30-876D-FA0C3590FF14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Core", "Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj", "{941C9868-AE2C-4B6C-A6D8-41CA0888CF32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Core", "Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj", "{941C9868-AE2C-4B6C-A6D8-41CA0888CF32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E1BA67E0-5506-4BE0-B10A-F9C6E3488DD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Core.Tests", "Wild.Pokenizer.Core.Tests\Wild.Pokenizer.Core.Tests.csproj", "{C80F1079-B27D-4103-A7CB-C12780059B12}"
-EndProject
-Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "Wild.Pokenizer.Modelling", "Wild.Pokenizer.Modelling\Wild.Pokenizer.Modelling.rxproj", "{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Core.Tests", "Wild.Pokenizer.Core.Tests\Wild.Pokenizer.Core.Tests.csproj", "{C80F1079-B27D-4103-A7CB-C12780059B12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -360,54 +358,6 @@ Global
 		{C80F1079-B27D-4103-A7CB-C12780059B12}.Release|x64.Build.0 = Release|Any CPU
 		{C80F1079-B27D-4103-A7CB-C12780059B12}.Release|x86.ActiveCfg = Release|Any CPU
 		{C80F1079-B27D-4103-A7CB-C12780059B12}.Release|x86.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|ARM.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|x64.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|x64.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|x86.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Ad-Hoc|x86.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|Any CPU.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|ARM.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|ARM.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|x64.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|x64.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|x86.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.AppStore|x86.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|ARM.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|x64.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Debug|x86.Build.0 = Debug|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|ARM.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|ARM.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|iPhone.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|x64.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|x64.Build.0 = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|x86.ActiveCfg = Release|Any CPU
-		{4D0F0F94-595D-45A1-B3C6-EE9ABF912755}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
