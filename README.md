@@ -90,6 +90,8 @@ https://github.com/emgucv/emgutf/commit/6df07424da4b9ce5b64ecad95b40a11408f1416f
 
 ## Keras Installation Notes
 
+> The notes below are out of date - see section at the end
+
 https://www.tensorflow.org/install/gpu
 The following NVIDIA® software must be installed on your system:
 
@@ -98,7 +100,7 @@ CUDA® Toolkit —TensorFlow supports CUDA 9.0.
 CUPTI ships with the CUDA Toolkit.
 cuDNN SDK (>= 7.2)
 
-NVISIA developer login - wildconsultingltd@gmail.com S$
+NVIDIA developer login - wildconsultingltd@gmail.com S$
 
 Download CUDA from https://developer.nvidia.com/cuda-90-download-archive?target_os=Windows&target_arch=x86_64 
 Download cuDNN from https://developer.nvidia.com/rdp/cudnn-download - Download cuDNN v7.4.2 (Dec 14, 2018), for CUDA 9.0 - Windows 10
@@ -142,6 +144,17 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64
 ```
 
+> Updated
+
+See https://www.pugetsystems.com/labs/hpc/How-to-Install-TensorFlow-with-GPU-Support-on-Windows-10-Without-Installing-CUDA-UPDATED-1419/
+
+Made sure PATH has the following, adding where needed:
+
+```
+C:\Users\mike\Anaconda3\
+C:\Users\mike\Anaconda3\Scripts
+C:\Users\mike\Anaconda3\Library\bin
+```
 
 Install Keras and tensorflow in R:
 
@@ -150,3 +163,16 @@ install.packages("keras")
 library(keras)
 install_keras(tensorflow = "gpu")
 ```
+
+NOTE: Manged to get things working just by setting a specific environment
+after the python environment had been created; 
+no need to install_keras:
+
+```
+library(keras)
+# Use specific environment already set up in Anaconda 
+use_condaenv("tf-gpu")
+
+```
+
+The R project has been updated to set this environment
