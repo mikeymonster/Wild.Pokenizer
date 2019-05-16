@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
@@ -31,5 +32,10 @@ namespace Wild.Pokenizer.Core.Predictors
                         PredictionTime = DateTime.Now
                     });
         }
+
+        public string Name => nameof(DefaultPredictor);
+
+        public string Version => 
+            Assembly.GetExecutingAssembly().GetName().Version.ToString();
     }
 }

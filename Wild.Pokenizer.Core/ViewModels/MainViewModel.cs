@@ -93,6 +93,12 @@ namespace Wild.Pokenizer.Core.ViewModels
             get => _prediction;
         }
 
+        public string PredictorName =>
+            _predictor.Name;
+
+        public string PredictorVersion =>
+            _predictor.Version;
+
         #endregion
 
         #region Constructors

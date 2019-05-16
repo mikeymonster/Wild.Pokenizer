@@ -15,5 +15,9 @@ namespace Wild.Pokenizer.Core.Interfaces
         string TargetImageSource { get; }
 
         PredictionResult Prediction { get;  }
+
+        string PredictorName { get; }
+
+        string PredictorVersion { get; }
     }
 }

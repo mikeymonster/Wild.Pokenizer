@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Wild.Pokenizer.Core.Predictors;
 using Xunit;
 
@@ -29,6 +31,13 @@ namespace Wild.Pokenizer.Core.Tests
 
             Assert.True(result.Success);
             Assert.Equal("Prediction from stream.", result.Answer);
+        }
+
+        [Fact]
+        public void DefaultPredictorVersionCheckIsCorrect()
+        {
+            var sut = new DefaultPredictor();
+            sut.Version.Should().Be("1.0.0.0");
         }
 
         public void Dispose()

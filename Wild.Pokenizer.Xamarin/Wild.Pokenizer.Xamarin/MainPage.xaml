@@ -33,5 +33,13 @@
             <Label Text="Matched: "/>
             <Label x:Name="PredictionTimeLabel" Text="{Binding Path=Prediction.PredictionTime, StringFormat='{}{0:hh\\:mm}'}"/>
         </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="3">
+            <Label Text="Predictor: "/>
+            <Label x:Name="PredictorNameLabel" Text="{Binding Path=PredictorName}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="3">
+            <Label Text="Version: "/>
+            <Label x:Name="PredictorVersionLabel" Text="{Binding Path=PredictorVersion}"/>
+        </StackLayout>
     </StackLayout>
 </local:ViewPage>

@@ -31,6 +31,7 @@ Unit tests - xunit, with NSubstitute
 Camera - use [MediaPlugin](https://github.com/jamesmontemagno/MediaPlugin#important-permission-information) - note the complicated permission set up:
 
 ## CSS Stylesheets
+
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/css/
 https://xamarinhelp.com/css-xamarin-forms/
 https://visualstudiomagazine.com/articles/2018/04/01/styling-xamarin-forms.aspx
@@ -60,6 +61,7 @@ Identifying my daughters toys using AI - [Part 4](https://www.jimbobbennett.io/i
 
 For charts look at nuget package Microcharts and Microcharts.Forms
 
+[Downloading Kaggle zip files in R - Stack Overflow](https://stackoverflow.com/questions/35303779/downloading-kaggle-zip-files-in-r)
 
 ## Deploy to Android
 
@@ -176,3 +178,19 @@ use_condaenv("tf-gpu")
 ```
 
 The R project has been updated to set this environment
+
+# Tensorflow Lite
+
+https://www.tensorflow.org/lite
+https://github.com/tensorflow/tensorflow
+
+[Android quickstart | TensorFlow Lite](https://www.tensorflow.org/lite/guide/android)
+
+[Building a Custom Machine Learning Model on Android with TensorFlow Lite](https://riggaroo.co.za/building-a-custom-machine-learning-model-on-android-with-tensorflow-lite/)
+[TensorFlow Lite for Android Coding on YouTube](https://youtu.be/JnhW5tQ_7Vo)
+
+[Xamarin tf.lite input objects](https://stackoverflow.com/questions/52889099/xamarin-tf-lite-input-objects)
+
+[reticulate: R interface to Python](https://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
+
+
