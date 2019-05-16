@@ -1,10 +1,9 @@
 library(imager)
 
-# dataFilePath <-  "../data/cut-down-pokemon"
 source("Globals.R") # Load global variables
 
 #files
-dirs <- list.files(dataFilePath, include.dirs = TRUE )
+dirs <- list.files(dataFilePath, include.dirs= TRUE )
 dirs
 files <- list.files(dataFilePath, recursive=TRUE )
 files
