@@ -179,6 +179,19 @@ use_condaenv("tf-gpu")
 
 The R project has been updated to set this environment
 
+
+To check python environment, open Anaconda powershell
+
+```
+conda info --envs
+conda activate tf-gpu
+python
+
+import tensorflow as tf
+tf.enable_eager_execution()
+print( tf.constant('Hello from TensorFlow ' + tf.__version__) )
+```
+
 # Tensorflow Lite
 
 https://www.tensorflow.org/lite
