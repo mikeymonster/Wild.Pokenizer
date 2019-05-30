@@ -8,12 +8,12 @@ namespace Wild.Pokenizer.Xamarin.Android.Tests
 {
     public class AndroidPredictorTests
     {
-        [Fact]
-        public void VersionCheckIsCorrect()
-        {
-            var sut = new DroidPredictor();
-            sut.Version.Should().Be("1.0");
-        }
+        //[Fact]
+        //public void VersionCheckIsCorrect()
+        //{
+        //    var sut = new DroidPredictor();
+        //    sut.Version.Should().Be("1.0");
+        //}
 
         [Fact]
         public async Task DroidPredictorReturnsSuccessForStringInput()
