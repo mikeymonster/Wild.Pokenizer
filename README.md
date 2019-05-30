@@ -212,4 +212,9 @@ https://github.com/tensorflow/tensorflow
 
 [reticulate: R interface to Python](https://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 
+# TODO
+
+Look at [Using Pre-Trained Models](https://cran.rstudio.com/web/packages/keras/vignettes/applications.html)
+[Transfer Learning using Mobilenet and Keras” by Ferhat Culfaz](https://link.medium.com/DE2ufPSD1W)
+[Transfer Learning with Keras in R – Florian Teschner](http://flovv.github.io/Logo_detection_transfer_learning/)
 
