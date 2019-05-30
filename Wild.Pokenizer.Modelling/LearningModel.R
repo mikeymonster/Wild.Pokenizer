@@ -9,6 +9,8 @@ source("Globals.R") # Load global variables
 # Data source https://www.kaggle.com/mrgravelord/complete-pokemon-image-dataset
 #
 # See also https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/5.3-using-a-pretrained-convnet.Rmd
+#
+# Another example - http://flovv.github.io/Logo_detection_transfer_learning/
 
 
 # Use specific environment already set up in Anaconda 
@@ -30,26 +32,28 @@ batch_size = as.integer(24)
 #num_classes <-  928 # this many classes of Pokemon in the dataset
 num_classes <- length(list.files(dataFilePath, include.dirs = TRUE ))
 
+# https://keras.io/preprocessing/image/
 data_generator <-  image_data_generator(rescale = 1/255,
                                     horizontal_flip = TRUE,
                                     vertical_flip = FALSE,
                                     brightness_range = c(0.5, 1.5),
-                                    rotation_range = 10,
-                                    validation_split = 0.2
-                                    ) # use the `subset` argument in `flow_from_directory` to access
+                                    rotation_range = as.integer(10),
+                                    validation_split = 0.2)
 
 train_generator <- data_generator$flow_from_directory(dataFilePath,
-                                                     target_size = c(160,160), # chosen because this is size of the images in dataset
+                                                     target_size = as.integer(c(160,160)), # chosen because this is size of the images in dataset
                                                      batch_size = batch_size,
+                                                     shuffle = TRUE,
                                                      subset ='training')
 
 val_generator <- data_generator$flow_from_directory(dataFilePath,
-                                                   target_size = c(160,160),
+                                                   target_size = as.integer(c(160,160)),
                                                    batch_size = batch_size,
                                                    subset = 'validation')
 
 # import the base model and pretrained weights
-custom_input = layer_input(shape=c(160,160,3,NULL))
+#custom_input = layer_input(shape=c(160,160,3,NULL))
+custom_input = layer_input(shape=c(160,160,3))
 
 base_model = application_inception_v3(
   include_top = FALSE, 
@@ -62,20 +66,8 @@ base_model = application_inception_v3(
 #base_model  <- load_model_hdf5(file.path("../data", "inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5"))
 #file.path("./data", "inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5")
 
-#TODO: Use pipe here
-#x <- tail(base_model$layers, 1) #base_model$layers[-1]$output # snag the last layer of the imported model
-#x <- base_model$output 
-#x <- layer_global_max_pooling_2d(data_format = "channels_last")(x) # GlobalMaxPooling2D()(x)
-#x <- layer_dense(units = 1024, activation = "relu")(x) # an optional extra layer
-#x <- layer_dense(units = num_classes, activation = "softmax", name = "predictions")(x) # our new, custom prediction layer
-#x
 
-# x <- base_model$output
-# x <- layer_global_max_pooling_2d(x, data_format = "channels_last") # GlobalMaxPooling2D()(x)
-# x <- layer_dense(x, units = 1024, activation = "relu") # an optional extra layer
-# x <- layer_dense(x, units = num_classes, activation = "softmax", name = "predictions") # our new, custom prediction layer
-# x
-
+#x = base_model.layers[-1].output # snag the last layer of the imported model
 x <- base_model$output %>% 
   layer_global_max_pooling_2d(data_format = "channels_last") %>% 
   layer_dense(units = 1024, activation = "relu") %>% 
@@ -111,19 +103,22 @@ model %>% compile(
 )
 
 #?fit_generator
-model %>% fit_generator(train_generator,
+history <- model %>% fit_generator(train_generator,
                         validation_data = val_generator,
                         steps_per_epoch = as.integer(2000/batch_size),
                         validation_steps = as.integer(800/batch_size),
-                        #initial_epoch = 1,
-                        epochs = 1, # increase this if actually training
-                        #shuffle = TRUE,
+                        initial_epoch = 1,
+                        epochs = 50,
                         callbacks = c(reduce_lr, early_stop, tensorboard),
                         verbose = 2)
 
+plot(history)
 
 # Show tensorboard
-# tensorboard(tensorBoard_log_file_path)
+tensorboard(tensorBoard_log_file_path)
 
 # here's how to save the model after training. Use ModelCheckpoint callback to save mid-training.
-model.save('../data/InceptionV3_Pokemon.h5')
+model_filepath <- '../data/InceptionV3_Pokemon_trained.h5'
+model %>% save_model_hdf5(model_filepath)
+#model <- load_model_hdf5(model_filepath, custom_objects = NULL, compile = TRUE)
+

@@ -192,6 +192,12 @@ tf.enable_eager_execution()
 print( tf.constant('Hello from TensorFlow ' + tf.__version__) )
 ```
 
+May need to install PIL/Pillow to avoid errors in running Keras models (https://stackoverflow.com/questions/48225729/importerrorcould-not-import-pil-image-working-with-keras-ternsorflow/50775336):
+
+```
+conda install Pillow
+```
+
 # Tensorflow Lite
 
 https://www.tensorflow.org/lite
