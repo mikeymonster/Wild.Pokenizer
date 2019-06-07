@@ -13,7 +13,7 @@ namespace Wild.Pokenizer.Xamarin.Droid.Predictors
 
     public class TF_Sample_MainActivity : Activity
     {
-        private int _count = 1;
+        //private int _count = 1;
 
         public long ByteHash(byte[] contents)
         {

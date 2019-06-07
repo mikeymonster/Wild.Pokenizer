@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Xamarin.Droid.Predictors;
 using Xunit;
 
@@ -18,15 +21,20 @@ namespace Wild.Pokenizer.Xamarin.Android.Tests
         [Fact]
         public async Task DroidPredictorReturnsSuccessForStringInput()
         {
-            var x = new DroidPredictor();
-            var result = await x.PredictAsync("test");
+            var assetLoader = Substitute.For<IAssetLoader>();
+            var sut = new DroidPredictor(assetLoader);
+            var result = await sut.PredictAsync("test");
             result.Answer.Should().BeEquivalentTo("Prediction from Android string.");
         }
 
         [Fact]
         public async Task DroidPredictorReturnsSuccessForStreamInput()
         {
-            var sut = new DroidPredictor();
+            var assetLoader = Substitute.For<IAssetLoader>();
+            assetLoader.GetStream(Arg.Any<string>())
+                .Returns(new MemoryStream());
+
+            var sut = new DroidPredictor(assetLoader);
             var stream = new MemoryStream();
             var result = await sut.PredictAsync(stream);
 
