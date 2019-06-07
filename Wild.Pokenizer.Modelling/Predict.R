@@ -32,9 +32,10 @@ predict_pokemon <- function(input_image)
 
 
 # Reload model
+# Model downloaded from kaggle
 model_filepath <- '../data/InceptionV3_Pokemon.h5'
+#model_filepath <- '../data/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5'
 model <- load_model_hdf5(model_filepath, custom_objects = NULL, compile = TRUE)
-
 
 
 #TODO: Turn this into a function to download and save image
@@ -48,8 +49,6 @@ url <- 'https://bit.ly/2VQ32fd'
 image_path <- "../data/test_images/pikachu.jpg"
 img_1 <- image_read(url) #, width = 400)
 image_write(img_1, path = image_path, format = "jpg")
-
-
 
 
 # Keras image load, reshape and plot
@@ -71,6 +70,10 @@ message("A wild ", names(classes[ix]), " appears!" )
 
 #####################
 
+# Trying to work out how to save these...
+classes[1:length(classes)]
+class_names_df <- as.data.frame(names(lapply(classes, attributes)))
+write.table(class_names_df, file = "../data/labels.txt")
 
 
 

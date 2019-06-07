@@ -122,3 +122,10 @@ model_filepath <- '../data/InceptionV3_Pokemon_trained.h5'
 model %>% save_model_hdf5(model_filepath)
 #model <- load_model_hdf5(model_filepath, custom_objects = NULL, compile = TRUE)
 
+# Save labels
+labels_file_path <- "../data/Pokemon_Labels.txt"
+attributes(train_generator$class_indices) %>% 
+  write.table(file = labels_file_path, 
+              quote = FALSE, 
+              col.names = F, 
+              row.names = FALSE)
