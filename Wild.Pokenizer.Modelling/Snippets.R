@@ -25,6 +25,14 @@ ggplot(df_history) +
   geom_smooth(mapping = aes(x = epoch, y = metric))
 
 
+df_history <- as.data.frame(history)
+df_history
+summary(history)
+ggplot(df_history) +
+  geom_point(mapping = aes(x = epoch, y = value, color = metric, )) +
+  geom_line(mapping = aes(x = epoch, y = value, color = metric, ))
+#  geom_smooth(mapping = aes(x = epoch, y = value, color = metric))
+
 
 library(tensorflow)
 #install_tensorflow()
