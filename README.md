@@ -204,6 +204,7 @@ https://www.tensorflow.org/lite
 https://github.com/tensorflow/tensorflow
 
 [Android quickstart | TensorFlow Lite](https://www.tensorflow.org/lite/guide/android)
+[TensorFlow Lite example](https://www.tensorflow.org/lite/models/image_classification/android)
 
 [Building a Custom Machine Learning Model on Android with TensorFlow Lite](https://riggaroo.co.za/building-a-custom-machine-learning-model-on-android-with-tensorflow-lite/)
 [TensorFlow Lite for Android Coding on YouTube](https://youtu.be/JnhW5tQ_7Vo)
@@ -218,3 +219,25 @@ Look at [Using Pre-Trained Models](https://cran.rstudio.com/web/packages/keras/v
 [Transfer Learning using Mobilenet and Keras” by Ferhat Culfaz](https://link.medium.com/DE2ufPSD1W)
 [Transfer Learning with Keras in R – Florian Teschner](http://flovv.github.io/Logo_detection_transfer_learning/)
 
+# Convert
+
+https://www.tensorflow.org/lite/convert/python_api
+
+```
+cd \Users\mike\source\repos\Wild.Pokenizer\data
+
+conda activate tf-gpu
+python
+
+import tensorflow as tf
+
+converter = tf.lite.TFLiteConverter.from_keras_model_file("InceptionV3_Pokemon.h5")
+tflite_model = converter.convert()
+open("Pokemon_Model.tflite", "wb").write(tflite_model)
+
+
+# To check or set working directory in python:
+import os
+os.getcwd()
+os.chdir('C:\\Users\\mike\\source\\repos\\Wild.Pokenizer\\data')
+```
