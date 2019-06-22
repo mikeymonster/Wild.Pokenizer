@@ -3,8 +3,8 @@ rm(list=ls())
 
 # install.packages("imager")
 
-install.packages("tidyverse")
-install.packages(c("nycflights13", "gapminder", "Lahman"))
+# install.packages("tidyverse")
+# install.packages(c("nycflights13", "gapminder", "Lahman"))
 
 library(ggplot2)
 mpg

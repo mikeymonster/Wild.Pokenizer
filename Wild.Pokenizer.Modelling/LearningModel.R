@@ -55,16 +55,24 @@ val_generator <- data_generator$flow_from_directory(dataFilePath,
 #custom_input = layer_input(shape=c(160,160,3,NULL))
 custom_input = layer_input(shape=c(160,160,3))
 
-# base_model = application_inception_v3(
-#   include_top = FALSE, 
-#   weights ='imagenet',
-#   input_tensor = custom_input,
-#   #input_shape = NULL, 
-#   pooling = NULL, 
-#   classes = num_classes)
+#https://stackoverflow.com/questions/52282108/keras-accuracy-drops-while-finetuning-inception
+k_set_learning_phase(0)
+
+base_model = application_inception_v3(
+  include_top = FALSE, 
+  weights ='imagenet',
+  input_tensor = custom_input,
+  #input_shape = NULL, 
+  pooling = NULL, 
+  classes = num_classes)
+
+for (layer in base_model$layers)
+  layer$trainable <- FALSE
+
+k_set_learning_phase(1)
 
 # Try a different model
-base_model <- application_vgg16(weights = 'imagenet', include_top = FALSE)
+#base_model <- application_vgg16(weights = 'imagenet', include_top = FALSE)
 
 
 #base_model  <- load_model_hdf5(file.path("../data", "inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5"))
@@ -75,7 +83,6 @@ x <- base_model$output %>%
   layer_global_max_pooling_2d(data_format = "channels_last", trainable = TRUE) %>% 
   layer_dense(units = 1024, activation = "relu", trainable = TRUE) %>% 
   layer_dense(units = num_classes, activation = "softmax", name = "predictions", trainable = TRUE) # our new, custom prediction layer
-x
 
 model = keras_model(input = base_model$input, output = x)
 # model
@@ -84,8 +91,8 @@ model = keras_model(input = base_model$input, output = x)
 #https://keras.rstudio.com/reference/freeze_layers.html
 # first: train only the top layers (which were randomly initialized)
 # i.e. freeze all convolutional InceptionV3 layers
-for (layer in base_model$layers)
-  layer$trainable <- FALSE
+# for (layer in base_model$layers)
+#   layer$trainable <- FALSE
 
 #for (layer in model$layers) {
 #  layer$training = TRUE
