@@ -9,9 +9,10 @@ A project for learning how to recognize Pokemon using deep learning and to deplo
 
 ## Requirements
 
-Visual Studio with Data Science Workload for R project
-GPU enabled with CUDA
-Keras and Tensorflow
+* Visual Studio with Data Science Workload 
+* R and RStudio for R project
+* GPU enabled with CUDA
+* Python with Tensorflow
 
 ## Project Structure
 
@@ -90,7 +91,7 @@ https://github.com/emgucv/emgutf/commit/6df07424da4b9ce5b64ecad95b40a11408f1416f
 
 
 
-## Keras Installation Notes
+## OLD Keras Installation Notes
 
 > The notes below are out of date - see section at the end
 
@@ -146,9 +147,13 @@ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\extras\CUPTI\libx64
 ```
 
+
+## Python and Tensorflow Installation Notes
 > Updated
 
 See https://www.pugetsystems.com/labs/hpc/How-to-Install-TensorFlow-with-GPU-Support-on-Windows-10-Without-Installing-CUDA-UPDATED-1419/
+
+Install Anaconda
 
 Made sure PATH has the following, adding where needed:
 
@@ -158,7 +163,80 @@ C:\Users\mike\Anaconda3\Scripts
 C:\Users\mike\Anaconda3\Library\bin
 ```
 
-Install Keras and tensorflow in R:
+Update your base Anaconda packages from the Anaconda Powershell prompt:
+
+```
+conda update conda
+conda update anaconda
+conda update python
+conda update --all
+```
+
+Create environment in Anaconda powershell:
+
+```conda create --name tf-gpu```
+
+(Note - environment name might be different, e.g. `tf-2-gpu`)
+
+
+List environments:
+
+```conda info --envs``` 
+
+Activate:
+
+```conda activate tf-gpu```
+
+Install Tensorflow:
+
+```conda install tensorflow-gpu```
+
+
+Install Jupyter
+```
+conda install ipykernel jupyter
+python -m ipykernel install --user --name tf-2-gpu --display-name "TensorFlow-GPU-2"
+```
+
+The above will install numpy and scipy. 
+Other packages that might be needed:
+```
+conda install matplotlib pandas
+conda install scikit-learn
+conda install seaborn
+conda install statsmodels
+```
+
+
+
+
+Removing environments
+
+```
+conda info --envs
+conda remove --name <myenv> --all
+```
+
+```
+conda install Pillow
+```
+
+To check python environment, open Anaconda powershell
+
+```
+conda info --envs
+conda activate tf-gpu
+python
+
+import tensorflow as tf
+#tf.enable_eager_execution()
+print( tf.constant('Hello from TensorFlow ' + tf.__version__) )
+```
+
+
+
+
+## Install Tensorflow in R:
 
 ```
 install.packages("keras")
@@ -166,9 +244,6 @@ library(keras)
 install_keras(tensorflow = "gpu")
 ```
 
-NOTE: Manged to get things working just by setting a specific environment
-after the python environment had been created; 
-no need to install_keras:
 
 ```
 library(keras)
@@ -179,24 +254,9 @@ use_condaenv("tf-gpu")
 
 The R project has been updated to set this environment
 
-
-To check python environment, open Anaconda powershell
-
-```
-conda info --envs
-conda activate tf-gpu
-python
-
-import tensorflow as tf
-tf.enable_eager_execution()
-print( tf.constant('Hello from TensorFlow ' + tf.__version__) )
-```
-
 May need to install PIL/Pillow to avoid errors in running Keras models (https://stackoverflow.com/questions/48225729/importerrorcould-not-import-pil-image-working-with-keras-ternsorflow/50775336):
 
-```
-conda install Pillow
-```
+
 
 # Tensorflow Lite
 
