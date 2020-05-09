@@ -63,6 +63,7 @@ namespace Wild.Pokenizer.Xamarin.Droid.Predictors
             //Code https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/android/app/src/main/java/org/tensorflow/lite/examples/classification/tflite/Classifier.java
 
             //Kotlin example https://medium.com/@teresa.wu/tensorflow-image-recognition-on-android-with-kotlin-cee8d977ae9
+            // - code at https://github.com/teresawu/random
 
             //var tf = new Tensor();
             _labels = _labels ?? (_labels = await LoadLabels(LabelsFileName));
@@ -133,6 +134,10 @@ namespace Wild.Pokenizer.Xamarin.Droid.Predictors
             try
             {
                 // Run the inference
+                //Try RunForMultipleInputsOutputs
+                //    ?? GetOutputTensor
+                //  - see https://github.com/tensorflow/tensorflow/issues/25751
+                // or https://devblogs.microsoft.com/xamarin/android-apps-tensorflow/
                 interpreter.Run(imgData, floatArrayArray);
             }
             catch (Exception e)
