@@ -343,6 +343,18 @@ os.chdir('C:\\Users\\mike\\source\\repos\\Wild.Pokenizer\\data')
 [How to use Typescript with the ASP.NET Core 2.x React Project Template](https://jonhilton.net/new-aspnet-core-react-project/)
 
 
+Remove `eslint` dependencies manually from `devDependencies` in  package.json. 
+Navigate to the `\ClientApp\` folder and run the following:
+```
+npx npm-check-updates -u
+npm install
+
+npm install @types/node @types/react @types/react-dom @types/jest
+npm install @types/react-router
+npm install @types/reactstrap
+```
+
+
 Use TensorFlow.js
 https://www.tensorflow.org/js
 https://www.tensorflow.org/js/tutorials#convert_pretained_models_to_tensorflowjs
