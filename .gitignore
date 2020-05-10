@@ -295,7 +295,7 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# R data folder
+# data folder - exclude this because data might be sensitive
 data/
 
 # Logs

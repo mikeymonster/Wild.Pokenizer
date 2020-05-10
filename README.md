@@ -2,7 +2,7 @@
 
 A project for learning how to recognize Pokemon using deep learning and to deploy the model to a mobile device.
 
-* R
+* R and Python
 * Tensorflow 
 * Keras
 * Xamarin Forms
@@ -18,6 +18,9 @@ A project for learning how to recognize Pokemon using deep learning and to deplo
 
 NuGet - need Xam.Plugin.Media in order to use the camera
 
+Details in  [file://C:/Users/mike/.nuget/packages/xam.plugin.media/5.0.1/readme.txt]
+
+
 Thoughts:
 
  -- .Application (or Core) - contains the types, interfaces, default predictor etc.
@@ -30,6 +33,23 @@ DI - use Autofac. See https://www.jamesalt.com/getting-started-with-autofac-and-
 Unit tests - xunit, with NSubstitute
 
 Camera - use [MediaPlugin](https://github.com/jamesmontemagno/MediaPlugin#important-permission-information) - note the complicated permission set up:
+
+
+## Data
+
+See https://www.kaggle.com/kwisatzhaderach/neural-networks-with-pokemon 
+Data source https://www.kaggle.com/mrgravelord/complete-pokemon-image-dataset
+
+Original data source seems to be gone. Could try https://www.pyimagesearch.com/2018/04/09/how-to-quickly-build-a-deep-learning-image-dataset/
+
+
+
+## Training 
+
+See also https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/5.3-using-a-pretrained-convnet.Rmd
+
+Another example - http://flovv.github.io/Logo_detection_transfer_learning/
+
 
 ## CSS Stylesheets
 
@@ -63,6 +83,16 @@ Identifying my daughters toys using AI - [Part 4](https://www.jimbobbennett.io/i
 For charts look at nuget package Microcharts and Microcharts.Forms
 
 [Downloading Kaggle zip files in R - Stack Overflow](https://stackoverflow.com/questions/35303779/downloading-kaggle-zip-files-in-r)
+
+
+Mushroom Classification App - https://devblogs.microsoft.com/xamarin/image-classification-xamarin-android/ ([Code](https://github.com/dhindrik/MushroomDetector/))
+
+
+## Android assets
+
+https://code.tutsplus.com/tutorials/how-to-use-fontawesome-in-an-android-app--cms-24167
+Download from https://fontawesome.com/download
+
 
 ## Deploy to Android
 
@@ -273,13 +303,13 @@ https://github.com/tensorflow/tensorflow
 
 [reticulate: R interface to Python](https://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 
-# TODO
+## TODO
 
 Look at [Using Pre-Trained Models](https://cran.rstudio.com/web/packages/keras/vignettes/applications.html)
 [Transfer Learning using Mobilenet and Keras” by Ferhat Culfaz](https://link.medium.com/DE2ufPSD1W)
 [Transfer Learning with Keras in R – Florian Teschner](http://flovv.github.io/Logo_detection_transfer_learning/)
 
-# Convert
+## Convert
 
 https://www.tensorflow.org/lite/convert/python_api
 
@@ -301,3 +331,11 @@ import os
 os.getcwd()
 os.chdir('C:\\Users\\mike\\source\\repos\\Wild.Pokenizer\\data')
 ```
+
+
+## React web app
+
+Use TensorFlow.js
+https://www.tensorflow.org/js
+https://www.tensorflow.org/js/tutorials#convert_pretained_models_to_tensorflowjs
+ 

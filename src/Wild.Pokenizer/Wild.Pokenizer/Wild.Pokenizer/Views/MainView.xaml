@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms" 
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms" 
+               xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+               xmlns:vm="clr-namespace:Wild.Pokenizer.Core.ViewModels;assembly=Wild.Pokenizer.Core"
+               x:TypeArguments="vm:MainViewModel" 
+               x:DataType="vm:MainViewModel"
+               x:Class="Wild.Pokenizer.Views.MainView"
+               Shell.NavBarIsVisible="False">
+    <!--Title="..."-->
+    <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"-->
+
+    <ios:Page.UseSafeArea>false</ios:Page.UseSafeArea>
+    <StackLayout>
+          <Label Text="{Binding Message}" />
+      </StackLayout>
+</mvvm:ViewBase>
