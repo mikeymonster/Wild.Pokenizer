@@ -335,6 +335,14 @@ os.chdir('C:\\Users\\mike\\source\\repos\\Wild.Pokenizer\\data')
 
 ## React web app
 
+##### Set up new VS2019 React app
+
+
+[Starting out with the ASP.NET Core React template](https://jonhilton.net/understanding-the-asp-net-react-template/)
+
+[How to use Typescript with the ASP.NET Core 2.x React Project Template](https://jonhilton.net/new-aspnet-core-react-project/)
+
+
 Use TensorFlow.js
 https://www.tensorflow.org/js
 https://www.tensorflow.org/js/tutorials#convert_pretained_models_to_tensorflowjs
