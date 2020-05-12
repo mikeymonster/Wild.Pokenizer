@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Plugin.Media;
+using Wild.Pokenizer.Droid.Services;
+using Wild.Pokenizer.Services;
 
 namespace Wild.Pokenizer.Droid
 {

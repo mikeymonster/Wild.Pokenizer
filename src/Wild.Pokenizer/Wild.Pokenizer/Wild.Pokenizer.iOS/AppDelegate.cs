@@ -1,5 +1,7 @@
 ﻿using Foundation;
 using UIKit;
+using Wild.Pokenizer.iOS.Services;
+using Wild.Pokenizer.Services;
 
 namespace Wild.Pokenizer.iOS
 {

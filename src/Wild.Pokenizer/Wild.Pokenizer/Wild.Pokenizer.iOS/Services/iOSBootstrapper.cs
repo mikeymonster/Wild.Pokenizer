@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Wild.Pokenizer.Core.Interfaces;
 
-namespace Wild.Pokenizer.iOS
+namespace Wild.Pokenizer.iOS.Services
 {
     public class iOSBootstrapper : IBootstrapper
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.Models;
 
-namespace Wild.Pokenizer.iOS
+namespace Wild.Pokenizer.iOS.Services
 {
     public class CoreMLPredictor : IPredictor
     {

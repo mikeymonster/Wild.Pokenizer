@@ -43,7 +43,6 @@ Data source https://www.kaggle.com/mrgravelord/complete-pokemon-image-dataset
 Original data source seems to be gone. Could try https://www.pyimagesearch.com/2018/04/09/how-to-quickly-build-a-deep-learning-image-dataset/
 
 
-
 ## Training 
 
 See also https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/5.3-using-a-pretrained-convnet.Rmd
@@ -51,12 +50,18 @@ See also https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master
 Another example - http://flovv.github.io/Logo_detection_transfer_learning/
 
 
-## CSS Stylesheets
+## Xamarin styling
+
+#### CSS Stylesheets
 
 https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/css/
 https://xamarinhelp.com/css-xamarin-forms/
 https://visualstudiomagazine.com/articles/2018/04/01/styling-xamarin-forms.aspx
 https://forums.xamarin.com/discussion/138886/can-i-code-for-a-xamarin-forms-css-style-sheet-base-on-platform-can-i-target-a-style-sheet
+
+#### Gradient Backgrounds
+
+https://devblogs.microsoft.com/xamarin/magic-gradients-xamarinforms/
 
 
 ## Links

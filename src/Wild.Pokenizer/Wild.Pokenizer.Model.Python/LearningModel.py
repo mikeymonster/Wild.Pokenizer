@@ -7,7 +7,7 @@ from PIL import Image
 import requests
 
 import tensorflow as tf
-import tensorflow.keras as keras
+#import tensorflow.keras as keras
 
 print('Working directory: ' + os.getcwd())
 print('TensorFlow version: ' + tf.__version__)

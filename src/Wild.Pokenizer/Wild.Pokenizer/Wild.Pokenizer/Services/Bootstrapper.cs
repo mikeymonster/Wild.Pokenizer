@@ -11,7 +11,7 @@ using Wild.Pokenizer.Core.Interfaces;
 using Wild.Pokenizer.Core.ViewModels;
 using Xamarin.Forms;
 
-namespace Wild.Pokenizer
+namespace Wild.Pokenizer.Services
 {
     public class Bootstrapper
     {
@@ -29,6 +29,8 @@ namespace Wild.Pokenizer
             builder.RegisterType<Views.MainView>();
 
             builder.RegisterType<FormsNavigationHelper>().As<INavigationHelper>();
+
+            builder.RegisterType<MediaProvider>().As<IMediaProvider>();
 
             builder.RegisterType<MainViewModel>();
 

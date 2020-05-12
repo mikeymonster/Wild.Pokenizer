@@ -63,8 +63,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CoreMLPredictor.cs" />
-    <Compile Include="iOSBootstrapper.cs" />
+    <Compile Include="Services\CoreMLPredictor.cs" />
+    <Compile Include="Services\iOSBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -143,4 +143,5 @@
       <Name>Wild.Pokenizer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
 </Project>

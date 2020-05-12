@@ -7,7 +7,7 @@
              x:Class="Wild.Pokenizer.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#00B233</Color>
+            <Color x:Key="PageBackgroundColor">#008BB2</Color>
 
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource PageBackgroundColor}" />

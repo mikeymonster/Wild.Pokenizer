@@ -1,19 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mvvm:ViewBase xmlns="http://xamarin.com/schemas/2014/forms" 
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               mc:Ignorable="d"
                xmlns:mvvm="clr-namespace:TinyMvvm.Forms;assembly=TinyMvvm.Forms" 
                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                xmlns:vm="clr-namespace:Wild.Pokenizer.Core.ViewModels;assembly=Wild.Pokenizer.Core"
+               xmlns:viewComponents="clr-namespace:Wild.Pokenizer.ViewComponents"
                x:TypeArguments="vm:MainViewModel" 
                x:DataType="vm:MainViewModel"
                x:Class="Wild.Pokenizer.Views.MainView"
                Shell.NavBarIsVisible="False">
-    <!--Title="..."-->
-    <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"-->
 
     <ios:Page.UseSafeArea>false</ios:Page.UseSafeArea>
-    <StackLayout>
-          <Label Text="{Binding Message}" />
-      </StackLayout>
+
+    <StackLayout Padding="0" Spacing="10">
+        <Label Text="{Binding Message}" />
+        <Label Text="Identify a Pokémon" FontSize="Large" FontAttributes="Bold" />
+        <Label Text="Take a photo or pick one from your photo gallery" />
+        <Button Text="Take a photo" HeightRequest="60" Command="{Binding TakePhotoCommand}" />
+        <Button Text="Pick a photo" HeightRequest="60" Command="{Binding PickPhotoCommand}" />
+
+        <!--<Label Text="Results" FontSize="Large" FontAttributes="Bold" Margin ="5" />-->
+
+        <ListView x:Name="PredictionsListView"
+                  ItemsSource="{Binding Predictions}" >
+            <!--Compiler fails on the bindings below, so need to set this up in code-->
+            <!--https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/templates/data-templates/creating-->
+            <!--//https://stackoverflow.com/questions/50446371/xamarin-datatemplate-with-bindings-in-code-behind-not-working-->
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Label}" />
+                            <Label Text="{Binding Probability}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <viewComponents:PredictionsViewCell />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!--<Label Text="Top prediction:" FontSize="Large" FontAttributes="Bold" Margin ="5" />
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding TopPrediction.LabelName}" />
+            <Label Text="{Binding TopPrediction.Probability}" />
+        </StackLayout>-->
+    </StackLayout>
+
 </mvvm:ViewBase>

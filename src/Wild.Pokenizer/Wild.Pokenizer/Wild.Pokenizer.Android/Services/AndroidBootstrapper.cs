@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Wild.Pokenizer.Core.Interfaces;
 
-namespace Wild.Pokenizer.Droid
+namespace Wild.Pokenizer.Droid.Services
 {
     public class AndroidBootstrapper : IBootstrapper
     {
