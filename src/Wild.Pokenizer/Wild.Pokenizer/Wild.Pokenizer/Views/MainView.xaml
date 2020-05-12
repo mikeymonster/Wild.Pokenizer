@@ -11,16 +11,16 @@
                x:TypeArguments="vm:MainViewModel" 
                x:DataType="vm:MainViewModel"
                x:Class="Wild.Pokenizer.Views.MainView"
+               Visual="Material"
                Shell.NavBarIsVisible="False">
 
     <ios:Page.UseSafeArea>false</ios:Page.UseSafeArea>
 
     <StackLayout Padding="0" Spacing="10">
-        <Label Text="{Binding Message}" />
-        <Label Text="Identify a Pokémon" FontSize="Large" FontAttributes="Bold" />
-        <Label Text="Take a photo or pick one from your photo gallery" />
-        <Button Text="Take a photo" HeightRequest="60" Command="{Binding TakePhotoCommand}" />
-        <Button Text="Pick a photo" HeightRequest="60" Command="{Binding PickPhotoCommand}" />
+        <Label Text="Identify a Pokémon" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+        <Label Text="Take a photo or pick one from your photo gallery" FontSize="Medium" HorizontalTextAlignment="Center" />
+        <Button Text="Take a photo" HeightRequest="60" Margin="10,0" CornerRadius="12" Command="{Binding TakePhotoCommand}" />
+        <Button Text="Pick a photo" HeightRequest="60" Margin="10,0" CornerRadius="12" Command="{Binding PickPhotoCommand}" />
 
         <!--<Label Text="Results" FontSize="Large" FontAttributes="Bold" Margin ="5" />-->
 
