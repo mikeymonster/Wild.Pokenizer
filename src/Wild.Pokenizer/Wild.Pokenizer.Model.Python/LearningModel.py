@@ -34,54 +34,97 @@ def createTestData(archive, outputPath='./data/', test_size = 0.2, random_state 
     #Probably want to return a test and a train split
     return df, labels
 
-
-def splitData(archive, data, outputDir='./data/', test_size = 0.2, random_state = 40):
+def splitData(data, groupCol, test_size = 0.2, random_state = 40):
     """
-    Split the data int train/test and extract to folders
-    data should contain zipInfo objects from an open archive
+    Split the data into train/test
+    groupCol is the column to stratify/group on
+    """
+    X_train, X_test = model_selection.train_test_split(data, 
+                                                       stratify=data[groupCol], 
+                                                       test_size=test_size, 
+                                                       random_state=random_state)
+    return X_train, X_test
+
+def extractDataToDisk(archive, data, outputDir, outputSubDir, zipInfoCol='dataobj', fileNameCol='file'):
+    """
+    Save the data to folders
+    archive is the zip archive that data will be extracted from - it should be open
+    data should contain zipInfo objects from the open archive
+    zipInfoCol is the name of the column containing a ZipIno object
     """
 
     for index, row in data.iterrows():
-        print(index, row['dir'], row['file'])
-        #filePath = os.path.normpath(os.path.join(outputDir, "test", row['dir'], row['file']))
-        filePath = os.path.normpath(os.path.join(outputDir, ("train" if index %2 == 0 else "test")))
-        print('extacting to ' + filePath)
-        archive._extract_member(row['dataobj'], filePath, pwd=None)
+        filePath = os.path.normpath(os.path.join(outputDir, outputSubDir)) #, row['file']))
+        print('Extracting ' + row[fileNameCol] + ' to ' + filePath)
+        archive._extract_member(row[zipInfoCol], filePath, pwd=None)
     return
 
+
+#Processing starts here...
 print('Working directory: ' + os.getcwd())
 print('TensorFlow version: ' + tf.__version__ + ' Keras version:' + tf.keras.__version__)
 
 #Set random seed so results will be reproducible
 np.random.seed(348258)
 
-#dataPath='../../../data/complete-pokemon-image-dataset.zip'
-dataPath='D:/datascience/complete-pokemon-image-dataset.zip'
+#dataArchivePath='../../../data/complete-pokemon-image-dataset.zip'
+dataArchivePath='D:/datascience/complete-pokemon-image-dataset.zip'
+dataPath = '../../../data/pokemon-image-dataset'
 
-zipped_data = zipfile.ZipFile(dataPath, 'r')
+zipFile = zipfile.ZipFile(dataArchivePath, 'r')
 
-all_data, labels = createTestData(zipped_data, 
+all_data, labels = createTestData(zipFile, 
                                   outputPath='../../../data/')
 
-splitData(zipped_data, 
-          #all_data.head(50), 
-          all_data, 
-          outputDir='../../../data/')
+train_set, test_set = splitData(all_data, groupCol='dir')
 
-zipped_data.close()
+extractDataToDisk(zipFile, train_set, dataPath, 'train')
+extractDataToDisk(zipFile, test_set, dataPath, 'test')
 
+zipFile.close()
 
 """
-#Snippet for splitting data - ref p106
-#https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
+#Playing around with splitting...
+#https://stackoverflow.com/questions/53196174/split-into-train-and-test-by-group-sklearn-cross-val-score
+data = all_data.head(80)
+data = data[['dir', 'file']]
+
+data
+data['file']
 test_size = 0.2
 random_state = 40
 classNameCol = "dir"
-splitter = model_selection.GroupShuffleSplit(
-    nsplits = 1,
-    test_size = test_size,
-    random_state=random_state)
-splits = splitter.split(df, groups=df[className])
+#GroupShuffleSplit won't include every group (class label) so isn't the one we want
+#https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
+splitter = model_selection.GroupShuffleSplit(n_splits = 1, test_size = test_size, random_state=random_state)
+idx1, idx2 = next(splitter.split(data, groups=data.dir))
+idx1
+data
+df1, df2 = data.iloc[idx1], data.iloc[idx2]
+df1
+df2
+
+#toy data set for testing splits
+df=pd.DataFrame({'0':[17.0, 18.0,16.0, 12.0,  8.0, 21.0], 
+                 '1':[18.0, 16.0, 15.0,  8.0, 21.0, 19.0], 
+                 '2':[16.0, 15.0, 15.0, 21.0, 19.0, 20.0], 
+                 '3':[15.0, 15.0, 16.0, 19.0, 20.0,  9.0], 
+                 'ids':[13.0, 13.0, 13.0, 14.0, 14.0, 13.0]}) 
+df
+gss = model_selection.GroupShuffleSplit(n_splits=1, test_size=0.5)
+# Get the indexers for the split.
+idx1, idx2 = next(gss.split(df, groups=df.ids))
+idx1, idx2 = next(gss.split(df, groups=df['ids']))
+# Get the split DataFrames.
+df1, df2 = df.iloc[idx1], df.iloc[idx2]
+df1
+df2
+data
+X_train, X_test, y_train, y_test = train_test_split(df['data'], df['labels'],stratify=df['ids'])
+X_train, X_test = model_selection.train_test_split(df, stratify=df['ids'])
+X_train, X_test = model_selection.train_test_split(all_data, stratify=all_data['dir'], test_size=0.5)
+X_train
+X_test
 """
 
 #Set up model
