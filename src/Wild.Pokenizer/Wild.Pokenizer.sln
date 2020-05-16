@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BAF86431-89B2-452E-A12E-B09687DFD74B}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\README.md = ..\..\README.md
+		..\..\Secrets.md = ..\..\Secrets.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Core", "Wild.Pokenizer.Core\Wild.Pokenizer.Core.csproj", "{775E3499-AAE0-4064-9676-CB8C5CCEF311}"
@@ -22,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{43D25B78
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Core.Tests", "Wild.Pokenizer.Core.Tests\Wild.Pokenizer.Core.Tests.csproj", "{4B735920-8378-440D-BB99-5B04B838C744}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wild.Pokenizer.Web.React", "Wild.Pokenizer.Web.React\Wild.Pokenizer.Web.React.csproj", "{96438026-9104-4602-A4EF-65AE9A370DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wild.Pokenizer.Web.React", "Wild.Pokenizer.Web.React\Wild.Pokenizer.Web.React.csproj", "{96438026-9104-4602-A4EF-65AE9A370DD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -297,6 +297,10 @@ vignettes/*.pdf
 
 # data folder - exclude this because data might be sensitive
 data/
+SavedModels/
 
 # Logs
 logs/
+
+#File with any secret info that shouldn't be in git
+Secrets.md

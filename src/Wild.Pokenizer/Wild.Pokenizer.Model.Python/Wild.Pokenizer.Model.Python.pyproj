@@ -7,10 +7,12 @@
     <StartupFile>LearningModel.py</StartupFile>
     <SearchPath>
     </SearchPath>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>.C:\Users\mike\source\repos\Wild.Pokenizer\src\Wild.Pokenizer\Wild.Pokenizer.Model.Python</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Wild.Pokenizer.Model.Python</Name>
     <RootNamespace>Wild.Pokenizer.Model.Python</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>CondaEnv|CondaEnv|tf-2-gpu</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +23,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CreateData.py" />
+    <Compile Include="LearningModel_2.py" />
     <Compile Include="LearningModel.py" />
+    <Compile Include="Predict.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|tf-2-gpu" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

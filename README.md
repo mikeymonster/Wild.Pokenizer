@@ -18,7 +18,7 @@ A project for learning how to recognize Pokemon using deep learning and to deplo
 
 NuGet - need Xam.Plugin.Media in order to use the camera
 
-Details in  [file://C:/Users/mike/.nuget/packages/xam.plugin.media/5.0.1/readme.txt]
+Details in  C:\Users\<user>/.nuget/packages/xam.plugin.media/5.0.1/readme.txt
 
 
 Thoughts:
@@ -193,9 +193,9 @@ Install Anaconda
 Made sure PATH has the following, adding where needed:
 
 ```
-C:\Users\mike\Anaconda3\
-C:\Users\mike\Anaconda3\Scripts
-C:\Users\mike\Anaconda3\Library\bin
+C:\Users\<user>\Anaconda3\
+C:\Users\<user>\Anaconda3\Scripts
+C:\Users\<user>\Anaconda3\Library\bin
 ```
 
 Update your base Anaconda packages from the Anaconda Powershell prompt:
@@ -292,6 +292,28 @@ The R project has been updated to set this environment
 May need to install PIL/Pillow to avoid errors in running Keras models (https://stackoverflow.com/questions/48225729/importerrorcould-not-import-pil-image-working-with-keras-ternsorflow/50775336):
 
 
+#Tensorboard
+
+Show logs by running from powershell (first line optional if the environment is already active)
+```
+conda activate tf-2-gpu
+tensorboard --logdir="<logpath>" --port 6006
+```
+If open in current working directory just need 
+```
+tensorboard --logdir=./logs --port 6006
+```
+then navigate to http://localhost:6006/
+
+
+> If see an empty page - this is a bug that should be fixed in tensorboard 2.2.0:
+> https://stackoverflow.com/questions/39228657/disable-chrome-strict-mime-type-checking
+>* Open the Registry Editor i.e Win + R > regedit
+>* Head over to HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.js
+>* Check to if the Content Type is application/javascript or not (was text/plain)
+>* If not, then change it to application/javascript and try again
+
+
 
 # Tensorflow Lite
 
@@ -319,7 +341,7 @@ Look at [Using Pre-Trained Models](https://cran.rstudio.com/web/packages/keras/v
 https://www.tensorflow.org/lite/convert/python_api
 
 ```
-cd \Users\mike\source\repos\Wild.Pokenizer\data
+cd <data_path>
 
 conda activate tf-gpu
 python
@@ -330,11 +352,9 @@ converter = tf.lite.TFLiteConverter.from_keras_model_file("InceptionV3_Pokemon.h
 tflite_model = converter.convert()
 open("Pokemon_Model.tflite", "wb").write(tflite_model)
 
-
 # To check or set working directory in python:
 import os
 os.getcwd()
-os.chdir('C:\\Users\\mike\\source\\repos\\Wild.Pokenizer\\data')
 ```
 
 
