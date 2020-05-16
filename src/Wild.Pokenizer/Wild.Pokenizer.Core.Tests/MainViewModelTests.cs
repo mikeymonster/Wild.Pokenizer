@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Moq;
 using Plugin.Media.Abstractions;
 using Wild.Pokenizer.Core.Interfaces;
@@ -54,12 +51,12 @@ namespace Wild.Pokenizer.Core.Tests
         {
             var mockMediaProvider = new Mock<IMediaProvider>();
             var mockPredictor = Mock.Of<IPredictor>();
-            var sut = new MainViewModel(mockMediaProvider.Object, mockPredictor);
+            var viewModel = new MainViewModel(mockMediaProvider.Object, mockPredictor);
 
-            sut.Predictions.Should().NotBeNull();
-            sut.Predictions.Should().BeEmpty();
+            viewModel.Predictions.Should().NotBeNull();
+            viewModel.Predictions.Should().BeEmpty();
 
-            sut.TopPrediction.Should().BeNull();
+            viewModel.TopPrediction.Should().BeNull();
         }
 
         [Fact]
@@ -67,9 +64,9 @@ namespace Wild.Pokenizer.Core.Tests
         {
             var mockMediaProvider = Mock.Of<IMediaProvider>();
             var mockPredictor = Mock.Of<IPredictor>();
-            var sut = new MainViewModel(mockMediaProvider, mockPredictor);
+            var viewModel = new MainViewModel(mockMediaProvider, mockPredictor);
 
-            sut.Message.Should().BeEmpty();
+            viewModel.Message.Should().BeEmpty();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -111,21 +110,41 @@ namespace Wild.Pokenizer.Core.ViewModels
 
             var stream = file.GetStreamWithImageRotatedForExternalStorage();
 
-            var memoryStream = new MemoryStream();
-            await stream.CopyToAsync(memoryStream);
-            var bytes = memoryStream.ToArray();
+            //var memoryStream = new MemoryStream();
+            //await stream.CopyToAsync(memoryStream);
+            //var bytes = memoryStream.ToArray();
 
-            //_predictor.PredictionCompleted += Predictor_PredictionCompleted;
+            _predictor.PredictionCompleted += Predictor_PredictionCompleted;
 
             var predictions = await _predictor.PredictAsync(stream);
             Predictions.Clear();
-            foreach (var prediction in predictions)
+            foreach (var prediction in predictions
+                .OrderByDescending(x => x.Probability))
             {
                 Predictions.Add(prediction);
             }
             RaisePropertyChanged(nameof(TopPrediction));
 
             IsBusy = false;
+        }
+
+
+        private void Predictor_PredictionCompleted(object sender, PredictionCompletedEventArgs e)
+        {
+            var sortedList = e.Predictions.OrderByDescending(x => x.Probability);
+
+            var top = sortedList.First();
+
+            if (top.Probability >= 0.9)
+            {
+                //var item = allItems.Single(x => x.LatinName.ToLower() == top.TagName.ToLower());
+                //Navigation.NavigateToAsync("ResultView", item);
+            }
+
+            if (sender is IPredictor predictor)
+            {
+                predictor.PredictionCompleted -= Predictor_PredictionCompleted;
+            }
         }
     }
 }

@@ -9,19 +9,19 @@ namespace Wild.Pokenizer.Core.Tests
         [Fact]
         public void Prediction_Default_Constructor_Sets_Default_Properties()
         {
-            var sut = new Prediction();
+            var prediction = new Prediction();
 
-            sut.Label.Should().BeNull();
-            sut.Probability.Should().Be(0);
+            prediction.Label.Should().BeNull();
+            prediction.Probability.Should().Be(0);
         }
 
         [Fact]
         public void Prediction_Constructor_Sets_Properties()
         {
-            var sut = new Prediction("Test_Label", 0.95f);
+            var prediction = new Prediction("Test_Label", 0.95f);
 
-            sut.Label.Should().Be("Test_Label");
-            sut.Probability.Should().BeApproximately(0.95f, 0.0001f);
+            prediction.Label.Should().Be("Test_Label");
+            prediction.Probability.Should().BeApproximately(0.95f, 0.0001f);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Wild.Pokenizer.Droid.Services
     {
         public void Init(ContainerBuilder builder)
         {
+            builder.RegisterType<AndroidAssetLoader>().As<IAssetLoader>();
             builder.RegisterType<TensorflowLitePredictor>().As<IPredictor>();
         }
     }

@@ -68,10 +68,12 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AndroidAssetLoader.cs" />
     <Compile Include="Services\TensorflowLitePredictor.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\fontawesome.otf" />
+    <AndroidAsset Include="Assets\model.tflite" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -108,7 +110,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Labels.txt" />
+    <AndroidAsset Include="Assets\labels.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\file_paths.axml" />

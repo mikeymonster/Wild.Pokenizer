@@ -9,6 +9,8 @@ namespace Wild.Pokenizer.Core.Services
 {
     public class DefaultPredictor : IPredictor
     {
+        public event EventHandler<PredictionCompletedEventArgs> PredictionCompleted;
+
         public Task<IEnumerable<Prediction>> PredictAsync(Stream input)
         {
             throw new NotImplementedException();
