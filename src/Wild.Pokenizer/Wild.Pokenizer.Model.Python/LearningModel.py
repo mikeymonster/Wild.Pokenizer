@@ -83,16 +83,18 @@ print("Have " + str(num_classes) + " classes")
 base_model = MobileNet(include_top=False,
                         input_shape=(config.IMG_WIDTH, config.IMG_HEIGHT, 3))
 for layer in base_model.layers[:]:
-    layer.trainable = False
+#for layer in base_model.layers[-20:]:
+    layer.trainable = True
+    #layer.trainable = False
 
 input = Input(shape=(config.IMG_WIDTH, config.IMG_HEIGHT, 3))
 custom_model = base_model(input)
-custom_model = GlobalAveragePooling2D()(custom_model)
-#custom_model = GlobalMaxPooling2D()(custom_model)
+#custom_model = GlobalAveragePooling2D()(custom_model)
+custom_model = GlobalMaxPooling2D()(custom_model)
 custom_model = Dense(4096, activation='relu')(custom_model)
 #custom_model = Dense(64, activation='relu')(custom_model)
-#custom_model = Dense(1024, activation='relu')(custom_model)
-custom_model = Dropout(0.5)(custom_model)
+custom_model = Dense(1024, activation='relu')(custom_model)
+#custom_model = Dropout(0.5)(custom_model)
 predictions = Dense(num_classes, activation='softmax')(custom_model)
     
 #    return Model(inputs=input, outputs=predictions)
@@ -101,12 +103,12 @@ predictions = Dense(num_classes, activation='softmax')(custom_model)
 model = Model(inputs=input, outputs=predictions)
 
 model.compile(loss='categorical_crossentropy',
-              optimizer=tf.keras.optimizers.Adam(0.001), #1e-8),
+              optimizer=tf.keras.optimizers.Adam(0.00001), #1e-8),
               metrics=['acc'])
 
 #Callbacks
-reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=12, cooldown=6, rate=0.6, min_lr=1e-18, verbose=1)
-early_stop = EarlyStopping(monitor='val_loss', patience=24, verbose=1)
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=10, cooldown=6, rate=0.6, min_lr=1e-18, verbose=1)
+early_stop = EarlyStopping(monitor='val_loss', patience=15, verbose=1)
 
 #Set up tensorboard callback
 tensor_board = tf.keras.callbacks.TensorBoard(r'.\logs\Pokemon_Learner')
@@ -117,25 +119,22 @@ history = model.fit_generator (train_generator,
                     epochs=25,
                     validation_data=validation_generator,
                     validation_steps=math.ceil(float(validation_samples) / config.BATCH_SIZE),
-                    #callbacks=[reduce_lr,early_stop]
-                    callbacks=[tensor_board])
+                    callbacks=[reduce_lr,early_stop,tensor_board])
 
 #Now retrain with some layers unfrozen
-for layer in base_model.layers[-20:]:
-#for layer in base_model.layers[:]:
-    layer.trainable = True
+#for layer in base_model.layers[-20:]:
+#    layer.trainable = True
 
 model.compile(loss='categorical_crossentropy',
-              optimizer=tf.keras.optimizers.Adam(0.0001), #1e-8), #Use a lower learning rate for retraining
+              optimizer=tf.keras.optimizers.Adam(1e-8), #Use a lower learning rate for retraining
               metrics=['acc'])
 
 retraining_history = model.fit_generator (train_generator,
                                           steps_per_epoch=math.ceil(float(train_samples) / config.BATCH_SIZE),
-                                          epochs=15,
+                                          epochs=10,
                                           validation_data=validation_generator,
                                           validation_steps=math.ceil(float(validation_samples) / config.BATCH_SIZE),
-                                          #callbacks=[reduce_lr,early_stop]
-                                          callbacks=[tensor_board])
+                                          callbacks=[reduce_lr,early_stop,tensor_board])
 
 print("Classes: ")
 validation_generator.class_indices
@@ -177,4 +176,6 @@ img_1 = Image.open(BytesIO(response.content))
 plt.imshow(img_1)
 plt.show()
 """
+
+#https://github.com/PracticalDL/Practical-Deep-Learning-Book/blob/master/code/chapter-3/2-analyzing-the-results.ipynb
 

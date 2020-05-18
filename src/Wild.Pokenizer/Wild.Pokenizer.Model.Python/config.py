@@ -4,8 +4,10 @@ Contains common constants and configuration
 
 DATA_ARCHIVE_PATH='D:/datascience/complete-pokemon-image-dataset.zip'
 DATA_DIR = '../../../data/pokemon-image-dataset'
-TRAIN_DATA_DIR = '../../../data/pokemon-image-dataset/two_pokemon/train'
-VALIDATION_DATA_DIR = '../../../data/pokemon-image-dataset/two_pokemon/val'
+#TRAIN_DATA_DIR = '../../../data/pokemon-image-dataset/two_pokemon/train'
+#VALIDATION_DATA_DIR = '../../../data/pokemon-image-dataset/two_pokemon/val'
+TRAIN_DATA_DIR = '../../../data/pokemon-image-dataset/train'
+VALIDATION_DATA_DIR = '../../../data/pokemon-image-dataset/val'
 TEST_DATA_DIR = '../../../data/pokemon-image-dataset/test'
 
 SAVED_MODELS_DIR = './SavedModels'
