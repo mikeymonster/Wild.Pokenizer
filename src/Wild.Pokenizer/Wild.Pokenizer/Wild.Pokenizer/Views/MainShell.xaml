@@ -5,13 +5,14 @@
        x:Class="Wild.Pokenizer.Views.MainShell" 
        FlyoutBehavior="Disabled" 
        Shell.TabBarTitleColor="{StaticResource PageBackgroundColor}"
-       Shell.TabBarBackgroundColor="White">
+       Shell.TabBarBackgroundColor="White"
+       Visual="Material">
     <TabBar>
         <ShellContent Title="Pokemon Finder">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf002;" Size="22" FontFamily="{StaticResource IconFont}" />
             </ShellContent.Icon>
-            <views:MainView Title="Identify a Pokemon" />
+            <views:MainView AutomationId="MainView"  Title="Identify a Pokemon" />
         </ShellContent>
         <!--<ShellContent Title="Results" ContentTemplate="{DataTemplate views:ResultListView}">
             <ShellContent.Icon>

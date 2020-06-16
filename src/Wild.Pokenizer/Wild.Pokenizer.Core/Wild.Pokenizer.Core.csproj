@@ -7,9 +7,9 @@
   <ItemGroup>
     <PackageReference Include="TinyCache" Version="2.0.2" />
     <PackageReference Include="TinyCache.FileStorage" Version="2.0.2" />
-    <PackageReference Include="TinyMvvm" Version="2.0.17" />
-    <PackageReference Include="TinyMvvm.Autofac" Version="2.0.17" />
-    <PackageReference Include="TinyMvvm.Forms" Version="2.0.17" />
+    <PackageReference Include="TinyMvvm" Version="2.3.1" />
+    <PackageReference Include="TinyMvvm.Autofac" Version="2.3.1" />
+    <PackageReference Include="TinyMvvm.Forms" Version="2.3.1" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
   </ItemGroup>
 

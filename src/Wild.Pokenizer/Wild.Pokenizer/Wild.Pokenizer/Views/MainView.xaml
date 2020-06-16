@@ -11,7 +11,6 @@
                x:TypeArguments="vm:MainViewModel" 
                x:DataType="vm:MainViewModel"
                x:Class="Wild.Pokenizer.Views.MainView"
-               Visual="Material"
                Shell.NavBarIsVisible="False">
 
     <ios:Page.UseSafeArea>false</ios:Page.UseSafeArea>
@@ -19,12 +18,23 @@
     <StackLayout Padding="0" Spacing="10">
         <Label Text="Identify a Pokémon" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" />
         <Label Text="Take a photo or pick one from your photo gallery" FontSize="Medium" HorizontalTextAlignment="Center" />
-        <Button Text="Take a photo" HeightRequest="60" Margin="10,0" CornerRadius="12" Command="{Binding TakePhotoCommand}" />
-        <Button Text="Pick a photo" HeightRequest="60" Margin="10,0" CornerRadius="12" Command="{Binding PickPhotoCommand}" />
+        <Button x:Name="TakePhotoButton" 
+                AutomationId="TakePhotoButton" 
+                Text="Take a photo" HeightRequest="60" 
+                Margin="10,0" 
+                CornerRadius="12" 
+                Command="{Binding TakePhotoCommand}" />
+        <Button x:Name="PickPhotoButton" 
+                AutomationId="PickPhotoButton" 
+                Text="Pick a photo" HeightRequest="60" 
+                Margin="10,0" 
+                CornerRadius="12" 
+                Command="{Binding PickPhotoCommand}" />
 
         <!--<Label Text="Results" FontSize="Large" FontAttributes="Bold" Margin ="5" />-->
 
         <ListView x:Name="PredictionsListView"
+                  AutomationId="PredictionsListView"
                   ItemsSource="{Binding Predictions}" >
             <!--Compiler fails on the bindings below, so need to set this up in code-->
             <!--https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/templates/data-templates/creating-->

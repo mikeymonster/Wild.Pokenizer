@@ -55,13 +55,17 @@ namespace Wild.Pokenizer.Droid.Services
             System.Console.WriteLine($"Tensorflow schema version {TensorFlowLite.SchemaVersion()}");
             
             var interpreterOptions = new Interpreter.Options();
-            //TODO: Pass from UI?
+            //TODO: Pass from UI or settings?
             var numThreads = 1;
             interpreterOptions.SetNumThreads(numThreads);
+
             //TODO: Look into use of GPU delegate vs NNAPI
             // https://developer.android.com/ndk/guides/neuralnetworks
-            interpreterOptions.SetUseNNAPI(true);
             interpreterOptions.SetAllowFp16PrecisionForFp32(true);
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.OMr1)
+            {
+                interpreterOptions.SetUseNNAPI(true);
+            }
 
             //var interpreter = new Interpreter(mappedByteBuffer);
             var interpreter = new Interpreter(mappedByteBuffer, interpreterOptions);

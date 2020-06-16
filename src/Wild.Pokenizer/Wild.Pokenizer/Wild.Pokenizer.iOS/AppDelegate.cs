@@ -20,8 +20,13 @@ namespace Wild.Pokenizer.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+#if ENABLE_TEST_CLOUD
+            Xamarin.Calabash.Start();
+#endif
+
             Bootstrapper.Platform = new iOSBootstrapper();
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
 
             LoadApplication(new App());
 

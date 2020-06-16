@@ -59,10 +59,17 @@ https://xamarinhelp.com/css-xamarin-forms/
 https://visualstudiomagazine.com/articles/2018/04/01/styling-xamarin-forms.aspx
 https://forums.xamarin.com/discussion/138886/can-i-code-for-a-xamarin-forms-css-style-sheet-base-on-platform-can-i-target-a-style-sheet
 
-#### Gradient Backgrounds
+#### Xamarin controls
 
-https://devblogs.microsoft.com/xamarin/magic-gradients-xamarinforms/
+[Gradient background](https://devblogs.microsoft.com/xamarin/magic-gradients-xamarinforms/)
+[PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)
 
+#### Xamarin Material Design
+
+[Xamarin.Forms 101: Using Material Design in Xamarin Forms](https://www.youtube.com/watch?v=9ZAaffkSZ1Q&feature=youtu.be)
+
+Need to install nuget package `Xamarin.Forms.Visual.Material`
+Add init for FormsMaterial in the Android `MainActivity` and IoS `AppDelegate` (copy/paste the `Xamarin.Forms.Forms.Init`) 
 
 ## Links
 
@@ -99,6 +106,20 @@ https://code.tutsplus.com/tutorials/how-to-use-fontawesome-in-an-android-app--cm
 Download from https://fontawesome.com/download
 
 
+## Android UI testing
+
+https://geeks.ms/xamarinteam/2019/05/21/automate-the-ui-testing-of-your-app-with-xamarin-uitest-for-xamarin-forms-a-practical-implementation/ 
+https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/get-started-xamarin-forms
+
+Need to set set the `ANDROID_HOME` environment variable to the SDK path, e.g. 
+```C:\Program Files (x86)\Android\android-sdk```
+
+May need to add the tools and platform tools to PATH:
+```C:\Program Files (x86)\Android\android-sdk\tools
+C:\Program Files (x86)\Android\android-sdk\platform-tools```
+```
+
+
 ## Deploy to Android
 
 Connect your phone to PC using USB Cable. If succesfully connected, you will find your device in emulators list. Select your device and Run. Application will launch on your device.
@@ -110,6 +131,12 @@ To set up developer mode on phone:
 Then the Developer Options should be available in Settings (possibly under System)
 
 Can turn on USB Debugging options from there.
+
+
+## Mac setup for Xamarin
+
+https://timothelariviere.com/2016/10/21/one-mac-small-xamarin-team-how-to-part-1/
+https://timothelariviere.com/2017/03/15/one-mac-small-xamarin-team-how-to-part-2/
 
 
 ## Tensorflow Deployment
